@@ -156,9 +156,11 @@ object Notificador {
      * Muestra el aviso. [comoAlarma]: canal de alarma, pantalla completa (si la app tiene esa pantalla)
      * y sonido en bucle hasta una acción. [silenciada]: alarma ya callada. [pospuesta]: viene de una posposición.
      * [tag] != null: reemplaza esa notificación sin volver a avisar (ver [actualizar]).
+     * [abrir]: después de mostrarla, intenta la apertura automática ([Apertura.intentar]); la notificación
+     * queda igual, de respaldo.
      */
     fun mostrar(ctx: Context, a: Aviso, comoAlarma: Boolean = a.alarma, silenciada: Boolean = false,
-                pospuesta: Boolean = false, tag: String? = null) {
+                pospuesta: Boolean = false, tag: String? = null, abrir: Boolean = false) {
         crearCanales(ctx)
         val m = Nucleo.manejador
         val nm = ctx.getSystemService(NotificationManager::class.java)
@@ -209,5 +211,6 @@ object Notificador {
         if (!silenciada && tag == null) Registro.anotar(ctx, "#${a.id} notificación mostrada (" +
             (if (comoAlarma) "alarma" else "común") + ", notificaciones " +
             (if (nm.areNotificationsEnabled()) "activadas" else "DESACTIVADAS") + ")")
+        if (abrir && !silenciada && tag == null) Apertura.intentar(ctx, a)
     }
 }

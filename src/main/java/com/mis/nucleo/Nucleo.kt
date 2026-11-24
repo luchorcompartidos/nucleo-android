@@ -3,6 +3,7 @@ package com.mis.nucleo
 import android.app.Activity
 import android.app.Notification
 import android.content.Context
+import android.content.Intent
 
 /**
  * Punto de entrada del núcleo compartido entre apps (repo luchorcompartidos/nucleo-android;
@@ -15,7 +16,7 @@ import android.content.Context
  */
 object Nucleo {
     /** Versión del núcleo (independiente de la versión de cada app). */
-    const val VERSION = "0.6.0"
+    const val VERSION = "0.7.0"
 
     private var actual: Manejador? = null
 
@@ -87,6 +88,15 @@ interface Manejador {
      * muestra hasta 3). La app debe ofrecer "Hecho" en otro lado (ej. su pantalla de alarma).
      */
     fun mostrarHecho(ctx: Context, a: Aviso): Boolean = true
+
+    /**
+     * Apertura automática al vencer (ver [Apertura]): pantalla a abrir para este aviso, o null si no
+     * corresponde (opción apagada, nada para hacer…). Solo se usa si la app pide `abrir` al mostrar el aviso.
+     */
+    fun aperturaAutomatica(ctx: Context, a: Aviso): Intent? = null
+
+    /** Por qué [aperturaAutomatica] devolvió null (para el Registro). */
+    fun motivoSinApertura(ctx: Context, a: Aviso): String = "la app no abre nada para este aviso"
 
     /** Nombre visible del canal de avisos comunes (Ajustes de Android > Notificaciones). */
     val nombreCanal: String get() = "Avisos"
