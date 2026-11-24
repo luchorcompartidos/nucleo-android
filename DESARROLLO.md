@@ -14,7 +14,7 @@
 | URL publicada | — (se usa como submódulo `nucleo/`) |
 | Tipo | Módulo Android library (Kotlin nativo) |
 | Estado | En uso por Programador de Mensajes |
-| Última versión | **0.6.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 y v0.6.0 pendientes, sin Release) |
+| Última versión | **0.6.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 y v0.6.0 creados como pre-release) |
 | Se conecta con | luchorcompartidos/mensajes (submódulo) · a futuro luchorcompartidos/recordatorios |
 
 ## 2. Etapa actual
@@ -30,10 +30,9 @@
 - 2026-11-23 Conserva ids de canales y claves de Ajustes ("ajustes") y Registro ("registro") de Recordatorios, para que su migración no pierda configuración.
 - 2026-11-23 Se usa como submódulo en la carpeta `nucleo/` de cada app (checkout con `submodules: true`).
 - 2026-11-24 Repetición en el núcleo: tipos, cálculo de la próxima vez, primera vez válida y textos. Mismos códigos ("N","D","S","M","P","A") y claves JSON ("rep","dias","diaMes","semMes","diaSem","limite") que Recordatorios. Las veces ya ocurridas las cuenta cada app.
-- 2026-11-23 Versión propia (`Nucleo.VERSION`), independiente de cada app; sin Releases ni workflow (no genera APK). El tag `vX.Y.Z` lo crea el usuario desde la web (Claude no puede crear tags desde su sesión). Cada app fija el commit exacto del núcleo por el submódulo.
+- 2026-11-23 Versión propia (`Nucleo.VERSION`), independiente de cada app; sin Releases ni workflow (no genera APK). El tag `vX.Y.Z` lo crea el usuario desde la web publicando un pre-release (Releases → Draft a new release → tag nuevo → Target: el commit de esa versión en "Recent commits" → "Set as a pre-release" → Publish). Un borrador no crea el tag: hay que publicarlo. Claude no puede crear tags desde su sesión. Cada app fija el commit exacto del núcleo por el submódulo.
 
 ## 5. Pendientes / dudas abiertas
-- [ ] Crear los tags **v0.5.0** y **v0.6.0** desde la web (Releases → Draft a new release → tag `v0.5.0` en `main`; se puede guardar como borrador o publicar como pre-release).
 - [ ] ¿Pasar `Contactos`/`Agenda` y las pantallas comunes al núcleo cuando se migre Recordatorios?
 
 ## 6. Datos técnicos clave
@@ -45,6 +44,7 @@
 ## 7. Historial (resumido)
 - 2026-11-23: Repo creado desde `nucleo/` de Mensajes (núcleo 0.5.0); tag pendiente.
 - 2026-11-24: 0.6.0: repetición (`Repeticion.kt`) para Mensajes v0.0.11.
+- 2026-11-24: Tags creados por el usuario como pre-release: **v0.5.0** → `bbd4209`, **v0.6.0** → `f8014aa`.
 
 ---
 *Al cerrar cada sesión: actualizar secciones 1, 2, 3 y 7, y subir el archivo al repo.*
