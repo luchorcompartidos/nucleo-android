@@ -4,7 +4,7 @@ Núcleo compartido de las apps Android de la caja de apps (Kotlin nativo, sin li
 Es genérico: no conoce "recordatorios" ni "mensajes". Cada app responde por `Manejador`.
 
 Incluye: alarmas exactas (`Programador` + receivers), notificaciones (`Notificador`),
-posponer (`Posposicion`, `Ajustes`, `Tiempo`, `Registro`, `Permisos`), versión desde las
+posponer (`Posposicion`, `Ajustes`, `Tiempo`, `Registro`, `Permisos`), repetición (`Repeticion`, `Regla`, `Recurrencia`), versión desde las
 Releases de GitHub (`VersionGitHub`) y tema/paleta/botones comunes.
 
 ## Cómo se usa en una app
