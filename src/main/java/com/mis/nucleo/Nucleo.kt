@@ -16,7 +16,7 @@ import android.content.Intent
  */
 object Nucleo {
     /** Versión del núcleo (independiente de la versión de cada app). */
-    const val VERSION = "0.8.0"
+    const val VERSION = "0.9.0"
 
     private var actual: Manejador? = null
 

@@ -139,6 +139,35 @@ object Sms {
         }
     }
 
+    /**
+     * El SMS de esa ref ya se le pasó a Android y falta la confirmación (para no mandarlo dos veces).
+     * Se borra solo cuando llega el resultado ([SmsResultadoReceiver]) o con [olvidar].
+     */
+    fun enCamino(ctx: Context, ref: String) =
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).contains(ref)
+
+    /** Deja de considerar "en camino" esa ref (por ejemplo, si [enviar] devolvió error). */
+    fun olvidar(ctx: Context, ref: String) {
+        ctx.getSharedPreferences(PREFS, Context.MODE_PRIVATE).edit().remove(ref).commit()
+    }
+
+    /** Prefijo de las refs del SMS de prueba: así la app lo distingue en [Manejador.alResultadoSms] con [esPrueba]. */
+    const val PREFIJO_PRUEBA = "prueba:"
+
+    fun esPrueba(ref: String) = ref.startsWith(PREFIJO_PRUEBA)
+
+    /**
+     * "Enviar SMS de prueba": un SMS real al número indicado, con el texto "Prueba de [app] (fecha y hora)".
+     * El resultado llega como cualquier otro por [Manejador.alResultadoSms] (ref que cumple [esPrueba]).
+     * Devuelve null si se le pasó a Android, o el motivo por el que no se pudo.
+     */
+    fun enviarPrueba(ctx: Context, numero: String, app: String): String? {
+        val ahora = System.currentTimeMillis()
+        val ref = PREFIJO_PRUEBA + ahora
+        return enviar(ctx, numero, "Prueba de $app (${Tiempo.completo(ahora)})", ref = ref, etiqueta = "prueba ($numero)")
+            ?.also { olvidar(ctx, ref) }
+    }
+
     /** Texto de un código de error de Android (resultado del envío). */
     fun error(codigo: Int): String = when (codigo) {
         SmsManager.RESULT_ERROR_GENERIC_FAILURE -> "falla general"
