@@ -14,16 +14,16 @@
 | URL publicada | — (se usa como submódulo `nucleo/`) |
 | Tipo | Módulo Android library (Kotlin nativo) |
 | Estado | En uso por Programador de Mensajes |
-| Última versión | **0.9.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 a v0.8.0 creados; tag v0.9.0: ver sección 7) |
+| Última versión | **0.9.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 a v0.8.0 creados; **falta tag v0.9.0** → `8c36887`) |
 | Se conecta con | luchorcompartidos/mensajes (submódulo) · a futuro luchorcompartidos/recordatorios |
 
 ## 2. Etapa actual
 **0.9.0 — SMS: en camino y prueba** (`Sms.kt`): se suman `enCamino(ref)` (el SMS se pasó a Android y falta la confirmación), `olvidar(ref)`, y el SMS de prueba `enviarPrueba(numero, app)` con `PREFIJO_PRUEBA` / `esPrueba(ref)` para reconocer su resultado en `Manejador.alResultadoSms`. Antes estaban en Mensajes (`SmsApp`). La usa Mensajes desde su v0.0.17.
 - Base 0.8.0: funciones de Recordatorios (`paraSms`, `medir`, `convertirGsm`, `caracteresUnicode`, `convertible`, `descripcionTamanio`) + `partes`, `resumenCorto`, `permitido`, `enviar` con resultado (`SmsResultadoReceiver`), y los diálogos `controlarTamanioSms` / `editarSms`. El permiso `SEND_SMS` lo declara cada app.
-- En curso: —.
+- En curso: —. **Pendiente del usuario:** crear el tag **v0.9.0** (pre-release) sobre el commit "Núcleo 0.9.0" (`8c36887`): desde la sesión de Claude el push de tags se corta.
 
 ## 3. Próximos pasos
-1. Si el tag v0.9.0 no quedó creado (ver sección 7), crearlo como los anteriores (sección 4).
+1. Crear el tag v0.9.0 como los anteriores (sección 4).
 2. Migrar Recordatorios a este núcleo (incluye cambiar su `Calculo`/`Repeticion` por `Recurrencia`/`Regla`), en etapa aparte (ver DESARROLLO.md de Mensajes y de Recordatorios).
 3. Al migrar: el aviso del resultado del SMS de prueba (notificación) sigue en cada app; alinear la apertura de WhatsApp de Mensajes (`WhatsApp.abrir`) con `EnviarWhatsappActivity` de Recordatorios.
 
