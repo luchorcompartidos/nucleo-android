@@ -16,7 +16,7 @@ import android.content.Intent
  */
 object Nucleo {
     /** Versión del núcleo (independiente de la versión de cada app). */
-    const val VERSION = "0.7.0"
+    const val VERSION = "0.8.0"
 
     private var actual: Manejador? = null
 
@@ -97,6 +97,12 @@ interface Manejador {
 
     /** Por qué [aperturaAutomatica] devolvió null (para el Registro). */
     fun motivoSinApertura(ctx: Context, a: Aviso): String = "la app no abre nada para este aviso"
+
+    /**
+     * Resultado de un SMS mandado con [Sms.enviar] ([ref] = la que pasó la app): [ok] = Android confirmó
+     * todas las partes; si no, [motivo] dice por qué falló.
+     */
+    fun alResultadoSms(ctx: Context, ref: String, ok: Boolean, motivo: String) {}
 
     /** Nombre visible del canal de avisos comunes (Ajustes de Android > Notificaciones). */
     val nombreCanal: String get() = "Avisos"
