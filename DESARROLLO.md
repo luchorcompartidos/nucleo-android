@@ -14,7 +14,7 @@
 | URL publicada | — (se usa como submódulo `nucleo/`) |
 | Tipo | Módulo Android library (Kotlin nativo) |
 | Estado | En uso por Programador de Mensajes |
-| Última versión | **v0.5.0** (tag, 23-11-2026; sin Release) |
+| Última versión | **0.5.0** (`Nucleo.VERSION`, 23-11-2026; tag v0.5.0 pendiente, sin Release) |
 | Se conecta con | luchorcompartidos/mensajes (submódulo) · a futuro luchorcompartidos/recordatorios |
 
 ## 2. Etapa actual
@@ -29,9 +29,10 @@
 - 2026-11-23 Núcleo genérico: no conoce recordatorios ni mensajes; la app responde por `Manejador`.
 - 2026-11-23 Conserva ids de canales y claves de Ajustes ("ajustes") y Registro ("registro") de Recordatorios, para que su migración no pierda configuración.
 - 2026-11-23 Se usa como submódulo en la carpeta `nucleo/` de cada app (checkout con `submodules: true`).
-- 2026-11-23 Versión propia (`Nucleo.VERSION` + tag `vX.Y.Z`), independiente de cada app; sin Releases ni workflow (no genera APK).
+- 2026-11-23 Versión propia (`Nucleo.VERSION`), independiente de cada app; sin Releases ni workflow (no genera APK). El tag `vX.Y.Z` lo crea el usuario desde la web (Claude no puede crear tags desde su sesión). Cada app fija el commit exacto del núcleo por el submódulo.
 
 ## 5. Pendientes / dudas abiertas
+- [ ] Crear el tag **v0.5.0** desde la web (Releases → Draft a new release → tag `v0.5.0` en `main`; se puede guardar como borrador o publicar como pre-release).
 - [ ] ¿Pasar `Contactos`/`Agenda` y las pantallas comunes al núcleo cuando se migre Recordatorios?
 
 ## 6. Datos técnicos clave
@@ -41,7 +42,7 @@
 - Cómo se actualiza en una app: ver README.md.
 
 ## 7. Historial (resumido)
-- 2026-11-23: Repo creado desde `nucleo/` de Mensajes (núcleo 0.5.0) → tag **v0.5.0**.
+- 2026-11-23: Repo creado desde `nucleo/` de Mensajes (núcleo 0.5.0) (núcleo 0.5.0); tag pendiente.
 
 ---
 *Al cerrar cada sesión: actualizar secciones 1, 2, 3 y 7, y subir el archivo al repo.*

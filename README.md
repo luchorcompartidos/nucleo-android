@@ -25,5 +25,5 @@ Las versiones de plugins (AGP / Kotlin) las define la app que lo incluye.
 cd nucleo && git pull origin main && cd ..
 git add nucleo && git commit -m "Núcleo a vX.Y.Z"
 ```
-La versión del núcleo está en `Nucleo.VERSION` y como tag `vX.Y.Z` en este repo
-(independiente de la versión de cada app).
+La versión del núcleo está en `Nucleo.VERSION` (independiente de la versión de cada app);
+opcionalmente, también como tag `vX.Y.Z` en este repo.
