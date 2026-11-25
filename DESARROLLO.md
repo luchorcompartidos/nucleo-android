@@ -14,18 +14,17 @@
 | URL publicada | — (se usa como submódulo `nucleo/`) |
 | Tipo | Módulo Android library (Kotlin nativo) |
 | Estado | En uso por Programador de Mensajes |
-| Última versión | **0.9.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 a v0.8.0 creados; **falta tag v0.9.0** → `8c36887`) |
+| Última versión | **0.9.0** (`Nucleo.VERSION`, 24-11-2026; tags v0.5.0 a v0.9.0 creados) |
 | Se conecta con | luchorcompartidos/mensajes (submódulo) · a futuro luchorcompartidos/recordatorios |
 
 ## 2. Etapa actual
 **0.9.0 — SMS: en camino y prueba** (`Sms.kt`): se suman `enCamino(ref)` (el SMS se pasó a Android y falta la confirmación), `olvidar(ref)`, y el SMS de prueba `enviarPrueba(numero, app)` con `PREFIJO_PRUEBA` / `esPrueba(ref)` para reconocer su resultado en `Manejador.alResultadoSms`. Antes estaban en Mensajes (`SmsApp`). La usa Mensajes desde su v0.0.17.
 - Base 0.8.0: funciones de Recordatorios (`paraSms`, `medir`, `convertirGsm`, `caracteresUnicode`, `convertible`, `descripcionTamanio`) + `partes`, `resumenCorto`, `permitido`, `enviar` con resultado (`SmsResultadoReceiver`), y los diálogos `controlarTamanioSms` / `editarSms`. El permiso `SEND_SMS` lo declara cada app.
-- En curso: —. **Pendiente del usuario:** crear el tag **v0.9.0** (pre-release) sobre el commit "Núcleo 0.9.0" (`8c36887`): desde la sesión de Claude el push de tags se corta.
+- En curso: —.
 
 ## 3. Próximos pasos
-1. Crear el tag v0.9.0 como los anteriores (sección 4).
-2. Migrar Recordatorios a este núcleo (incluye cambiar su `Calculo`/`Repeticion` por `Recurrencia`/`Regla`), en etapa aparte (ver DESARROLLO.md de Mensajes y de Recordatorios).
-3. Al migrar: el aviso del resultado del SMS de prueba (notificación) sigue en cada app; alinear la apertura de WhatsApp de Mensajes (`WhatsApp.abrir`) con `EnviarWhatsappActivity` de Recordatorios.
+1. Migrar Recordatorios a este núcleo (incluye cambiar su `Calculo`/`Repeticion` por `Recurrencia`/`Regla`), en etapa aparte (ver DESARROLLO.md de Mensajes y de Recordatorios).
+2. Al migrar: el aviso del resultado del SMS de prueba (notificación) sigue en cada app; alinear la apertura de WhatsApp de Mensajes (`WhatsApp.abrir`) con `EnviarWhatsappActivity` de Recordatorios.
 
 ## 4. Decisiones tomadas
 - 2026-11-23 Núcleo genérico: no conoce recordatorios ni mensajes; la app responde por `Manejador`.
@@ -52,7 +51,7 @@
 - 2026-11-24: 0.7.0: apertura automática (`Apertura.kt`) para Mensajes v0.0.12.
 - 2026-11-24: Tags creados por el usuario como pre-release: **v0.5.0** → `bbd4209`, **v0.6.0** → `f8014aa`, **v0.7.0** → `983a254`.
 - 2026-11-24: 0.8.0: SMS (`Sms.kt`) para Mensajes v0.0.15. Tag **v0.8.0** → `4dc1b7d` creado por el usuario.
-- 2026-11-24: 0.9.0: `Sms.enCamino`, `olvidar` y `enviarPrueba` (antes en Mensajes) para Mensajes v0.0.17.
+- 2026-11-24: 0.9.0: `Sms.enCamino`, `olvidar` y `enviarPrueba` (antes en Mensajes) para Mensajes v0.0.17. Tag **v0.9.0** → `8c36887` creado por el usuario.
 
 ---
 *Al cerrar cada sesión: actualizar secciones 1, 2, 3 y 7, y subir el archivo al repo.*
